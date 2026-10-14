@@ -1,0 +1,199 @@
+{
+  "_nota": "Caso de prueba: planta de transformadores industriales tipo seco. Fuente: descripción del usuario (14 oct 2026) y resultados de su prueba en Cauce. Las dimensiones y posiciones de las máquinas no están en la descripción; se completan al dibujar el plano.",
+
+  "caso": {
+    "id": "transformadores-tipo-seco",
+    "nombre": "Planta de transformadores tipo seco",
+    "rubro": "Fabricación de transformadores industriales tipo seco",
+    "bodega": { "w": 32, "d": 16, "unidad": "m", "fuente": "reporte de la prueba" },
+    "portones": [
+      { "id": "A", "papel": "entrada" },
+      { "id": "B", "papel": "salida" }
+    ],
+    "supuestos_generales": {
+      "demanda_piezas_dia": null,
+      "jornada_min": null,
+      "eficiencia": null,
+      "nota": "No se dieron en la descripción; el sistema debe pedirlos o marcarlos como supuesto."
+    }
+  },
+
+  "procesos": [
+    {
+      "orden": 1,
+      "id": "recepcion",
+      "nombre": "Recepción y almacén de materia prima",
+      "insumos": ["rollos de cobre", "núcleos magnéticos laminados", "materiales aislantes"],
+      "unidades": 1,
+      "tipo_sugerido": "recepcion",
+      "t_lote_min": [15, 30],
+      "operarios": null,
+      "fuente_tiempo": "usuario"
+    },
+    {
+      "orden": 2,
+      "id": "embobinado",
+      "nombre": "Embobinado",
+      "unidades": 10,
+      "disposicion": "máquinas idénticas en paralelo",
+      "tipo_sugerido": "embobinado",
+      "t_ciclo_min": [60, 120],
+      "unidad_de_ciclo": "por juego de bobinas",
+      "operarios": 10,
+      "operarios_por_unidad": 1,
+      "fuente_tiempo": "usuario"
+    },
+    {
+      "orden": 3,
+      "id": "montaje",
+      "nombre": "Ensamble o montaje en el núcleo",
+      "unidades": 4,
+      "disposicion": "áreas de montaje",
+      "tipo_sugerido": "ensamble",
+      "t_ciclo_min": [90, 180],
+      "unidad_de_ciclo": "por unidad",
+      "operarios": 4,
+      "operarios_por_unidad": 1,
+      "fuente_tiempo": "usuario"
+    },
+    {
+      "orden": 4,
+      "id": "soldadura-componentes",
+      "nombre": "Soldadura estructural / componentes",
+      "unidades": 3,
+      "disposicion": "secciones de soldadura",
+      "tipo_sugerido": "soldadura",
+      "t_ciclo_min": [30, 45],
+      "unidad_de_ciclo": "por unidad",
+      "operarios": 3,
+      "operarios_por_unidad": 1,
+      "fuente_tiempo": "usuario"
+    },
+    {
+      "orden": 5,
+      "id": "pruebas-intermedias",
+      "nombre": "Pruebas eléctricas intermedias",
+      "unidades": 1,
+      "tipo_sugerido": "inspeccion",
+      "t_ciclo_min": [15, 20],
+      "unidad_de_ciclo": "por unidad",
+      "operarios": 1,
+      "fuente_tiempo": "usuario"
+    },
+    {
+      "orden": 6,
+      "id": "impregnacion",
+      "nombre": "Impregnación con grúa viga (inmersión en resina o barniz)",
+      "unidades": 1,
+      "tipo_sugerido": "grua",
+      "t_ciclo_min": [30, 45],
+      "unidad_de_ciclo": "por unidad",
+      "operarios": 1,
+      "fuente_tiempo": "usuario"
+    },
+    {
+      "orden": 7,
+      "id": "horneado",
+      "nombre": "Horneado (secado y curado de resina o barniz)",
+      "unidades": 1,
+      "tipo_sugerido": "horno",
+      "tipo_proceso": "por lote",
+      "capacidad": "procesa múltiples piezas a la vez",
+      "t_lote_min": [240, 480],
+      "unidad_de_ciclo": "por lote; acumula piezas antes de procesar",
+      "operarios": 1,
+      "fuente_tiempo": "usuario"
+    },
+    {
+      "orden": 8,
+      "id": "configuracion-conexiones",
+      "nombre": "Configuración y soldadura de conexiones finales",
+      "unidades": 6,
+      "disposicion": "secciones",
+      "tipo_sugerido": "ensamble",
+      "t_ciclo_min": [60, 120],
+      "unidad_de_ciclo": "por unidad",
+      "operarios": 6,
+      "operarios_por_unidad": 1,
+      "fuente_tiempo": "usuario"
+    },
+    {
+      "orden": 9,
+      "id": "ensamble-gabinete",
+      "nombre": "Ensamble del gabinete (envolvente metálica)",
+      "unidades": 4,
+      "disposicion": "áreas de ensamble",
+      "tipo_sugerido": "ensamble",
+      "t_ciclo_min": [90, 150],
+      "unidad_de_ciclo": "por unidad",
+      "operarios": 4,
+      "operarios_por_unidad": 1,
+      "fuente_tiempo": "usuario"
+    },
+    {
+      "orden": 10,
+      "id": "pruebas-finales",
+      "nombre": "Pruebas eléctricas finales (testeo normativo)",
+      "unidades": 1,
+      "tipo_sugerido": "inspeccion",
+      "t_ciclo_min": [45, 90],
+      "unidad_de_ciclo": "por unidad",
+      "operarios": 1,
+      "fuente_tiempo": "usuario"
+    },
+    {
+      "orden": 11,
+      "id": "empaque-embarque",
+      "nombre": "Empaquetado de cartón y embarque",
+      "unidades": 1,
+      "tipo_sugerido": "empaque",
+      "t_ciclo_min": [30, 45],
+      "unidad_de_ciclo": "por unidad",
+      "operarios": 2,
+      "fuente_tiempo": "usuario"
+    }
+  ],
+
+  "relaciones_conocidas": [
+    { "de": "impregnacion", "a": "horneado", "tipo": "flujo directo" },
+    { "de": "horneado", "a": "configuracion-conexiones", "tipo": "flujo directo" },
+    { "de": "configuracion-conexiones", "a": "ensamble-gabinete", "tipo": "flujo directo" },
+    { "de": "ensamble-gabinete", "a": "pruebas-finales", "tipo": "flujo directo" },
+    { "de": "pruebas-finales", "a": "empaque-embarque", "tipo": "flujo directo" }
+  ],
+
+  "flujos_pendientes_de_confirmar": [
+    "Retornos entre pruebas intermedias y montaje o soldadura, si los hay",
+    "Ruta de operarios distinta a la de piezas",
+    "Ruta de camiones o montacargas (entrada y salida)"
+  ],
+
+  "resultados_prueba": {
+    "fecha": "2026-10-14",
+    "reporte_hoy": {
+      "estaciones_reportadas": 16,
+      "rutas_reportadas": 16,
+      "recorrido_pieza_m": 86.5
+    },
+    "alternativas": {
+      "linea_recta": { "recorrido_pieza_m": 188.0, "cambio": "+117 %", "nota_del_usuario": "El reporte la presenta como rediseño seleccionado y dice que es más eficiente." },
+      "reordenar_en_su_lugar": { "recorrido_pieza_m": 86.5, "cambio": "0 %" }
+    },
+    "notas_del_usuario": [
+      "Quiere asistencia de la IA para editar el plano al añadir máquinas, sin rehacerlo desde cero.",
+      "Quiere copiar y pegar en el editor.",
+      "Quiere restricciones: lo que no se puede mover no se mueve, y aun así se busca la mejor distribución.",
+      "Quiere conveyors para ver rutas actuales y editar el flujo del paquete distinto al de los operarios.",
+      "Quiere imágenes de referencia de distribución como contexto inicial.",
+      "Quiere que cada herramienta conserve sus decisiones manuales en lugar de reubicar el plano.",
+      "Quiere que, si se modifica el plano, se regenere el contexto para confirmar la distribución actual."
+    ]
+  },
+
+  "criterios_de_aceptacion": [
+    "El reporte no debe llamar 'más eficiente' a una alternativa que aumenta el recorrido de 86.5 a 188.0 m.",
+    "Las 33 unidades (incluidas las 10 embobinadoras) deben aparecer como unidades, no como 16 estaciones.",
+    "Los retornos del flujo deben representarse y no enviarse al final de una línea recta.",
+    "Con 'reordenar en su lugar' la búsqueda debe intentar mejoras reales antes de declarar 0 %."
+  ]
+}
