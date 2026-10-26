@@ -124,6 +124,6 @@ def interrupt_jobs():
     with connection() as db:
         for row in db.execute("SELECT workspace,data FROM jobs").fetchall():
             value = json.loads(row["data"])
-            if value.get("status") in ("queued", "running"):
+            if value.get("status") in ("queued", "running", "waiting_provider"):
                 value.update(status="interrupted", error="El servicio se reinició. Puedes reintentar; los bloques completos se conservan.")
                 db.execute("UPDATE jobs SET data=? WHERE id=?", (encode(value), value["id"]))

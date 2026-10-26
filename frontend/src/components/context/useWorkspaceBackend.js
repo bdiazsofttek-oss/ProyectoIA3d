@@ -1,6 +1,7 @@
 import { useRef, useState } from 'react'
 import { workspaceRequest as request } from '../../workspaceApi'
 import { attachmentFile } from '../../contextWorkspace'
+import { ask } from '../Dialog'
 
 const delay = (ms) => new Promise((resolve) => setTimeout(resolve, ms))
 
@@ -42,7 +43,24 @@ export default function useWorkspaceBackend(project, activeId, onProjectChange) 
         await save()
         let work = await request(`/${id}/jobs`, { method: 'POST', body: { expected_revision: revision.current, kind, text, source_id: sourceId, topic, retry_job_id: retryId } })
         setJob(work)
-        while (work.status === 'queued' || work.status === 'running') {
+        while (['queued', 'running', 'waiting_provider'].includes(work.status)) {
+            if (work.status === 'waiting_provider') {
+                const proceed = await ask(`Error 429: la API de Gemini ha llegado a su límite. ¿Quieres continuar con el modelo local ${work.provider_issue?.local_model || 'Ollama'}? Se conservan las entregas terminadas y se retoma la llamada pendiente. El modelo local puede tardar más.`, { title: 'Límite de la API alcanzado', ok: 'Continuar con modelo local', cancel: 'Detener y conservar avance' })
+                if (!proceed) {
+                    await request(`/${id}/jobs/${work.id}/cancel`, { method: 'POST' })
+                    throw new Error('Trabajo detenido. El avance permanece guardado para reintentar.')
+                }
+                try {
+                    await request(`/${id}/jobs/${work.id}/continue-local`, { method: 'POST' })
+                } catch (error) {
+                    const retry = await ask(error.message, { title: 'No se pudo iniciar el modelo local', ok: 'Volver a intentar', cancel: 'Detener y conservar avance' })
+                    if (!retry) {
+                        await request(`/${id}/jobs/${work.id}/cancel`, { method: 'POST' })
+                        throw new Error('Trabajo detenido. El avance permanece guardado para reintentar.')
+                    }
+                    continue
+                }
+            }
             await delay(700)
             work = await request(`/${id}/jobs/${work.id}?summary=true`)
             setJob(work)

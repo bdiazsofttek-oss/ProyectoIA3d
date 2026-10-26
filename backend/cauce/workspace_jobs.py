@@ -133,6 +133,9 @@ async def interpret_block(kind, block, provider, source_id=None, topic=None):
 
 async def run(workspace_id, job_id, provider):
     value = store.job(workspace_id, job_id)
+    from .quota_fallback import QuotaFallback
+    if value['kind'] != 'construction':
+        provider = QuotaFallback(provider, workspace_id, value)
     value.update(status="running")
     store.save_job(workspace_id, value)
     try:

@@ -134,6 +134,19 @@ def create_router(provider):
         value = translate(lambda: jobs.launch(workspace_id, body, provider()))
         return jobs.progress_view(value) if body.kind == "construction" else value
 
+    @router.post('/{workspace_id}/jobs/{job_id}/continue-local')
+    async def continue_local(workspace_id: str, job_id: str):
+        from .quota_fallback import PENDING, local_provider
+        value = translate(lambda: store.job(workspace_id, job_id))
+        decision = PENDING.get((workspace_id, job_id))
+        if value['status'] != 'waiting_provider' or decision is None or decision.done():
+            raise HTTPException(409, 'El trabajo ya no está esperando una decisión. Consulta su estado.')
+        local = local_provider()
+        if not (await local.status()).get('ready'):
+            raise HTTPException(503, f'Ollama no está listo con {local.model}. Inicia Ollama e instala ese modelo para continuar.')
+        decision.set_result(local)
+        return {'status': 'resuming', 'provider': local.name, 'model': local.model}
+
     @router.get("/{workspace_id}/jobs/{job_id}")
     def read_job(workspace_id: str, job_id: str, summary: bool = False):
         value = translate(lambda: store.job(workspace_id, job_id))
@@ -142,7 +155,7 @@ def create_router(provider):
     @router.post("/{workspace_id}/jobs/{job_id}/cancel")
     async def cancel_job(workspace_id: str, job_id: str):
         value = translate(lambda: store.job(workspace_id, job_id))
-        if value["status"] in ("queued", "running"):
+        if value["status"] in ("queued", "running", "waiting_provider"):
             value["status"] = "cancelled"
             store.save_job(workspace_id, value)
             if job_id in jobs.TASKS:

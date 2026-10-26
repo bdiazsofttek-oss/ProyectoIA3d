@@ -213,11 +213,13 @@ export default function Story({ saveError, onReadContext, onVerify, construction
                                 {onReadContext ? 'Ver contexto de la planta' : 'Iniciar proyecto avanzado'}
                             </Btn>
                             {onReadContext && (
-                                <Btn size="small" disabled={reading || !context2?.ready} onClick={async () => { if (await onReadContext()) scrollToEditor() }}>
+                                <Btn size="small" disabled={reading} aria-describedby={!context2?.ready ? 'context-build-reason' : undefined} onClick={async () => { if (await onReadContext()) scrollToEditor() }}>
                                     Construir el plano desde mi contexto
                                 </Btn>
                             )}
                         </div>
+                        {onReadContext && !context2?.ready && <p id="context-build-reason" className="small" role="status">{context2?.blockedReason || 'El contexto todavía no está listo para construir.'} <button type="button" className="link-btn" onClick={() => onOpenContext('inicio')}>Revisar el contexto</button></p>}
+                        {error && <p className="small" role="alert">{error}</p>}
                     </div>
                 </Appear>
 
