@@ -1,0 +1,1441 @@
+{
+  "name": "Planta de Transformadores Tipo Seco",
+  "industry": "Transformadores",
+  "params": {},
+  "gates": [
+    {
+      "id": "A",
+      "x": 0,
+      "z": 9,
+      "label": "Entrada Materia Prima (Izq)"
+    },
+    {
+      "id": "B",
+      "x": 34,
+      "z": 9,
+      "label": "Entrada Materia Prima (Der)"
+    },
+    {
+      "id": "C",
+      "x": 17.5,
+      "z": 0,
+      "label": "Salida Producto Terminado"
+    },
+    {
+      "id": "D",
+      "x": 8.93,
+      "z": 0,
+      "label": "Portón D"
+    },
+    {
+      "id": "E",
+      "x": 27.42,
+      "z": 0,
+      "label": "Portón E"
+    }
+  ],
+  "walls": [],
+  "conveyors": [],
+  "routes": [
+    {
+      "flow": "material",
+      "is_return": false,
+      "conveyor": null,
+      "id": "r5",
+      "from": "impregnado",
+      "to": "horno",
+      "frac": 1
+    },
+    {
+      "flow": "material",
+      "is_return": false,
+      "conveyor": null,
+      "id": "r6",
+      "from": "horno",
+      "to": "stock",
+      "frac": 1
+    },
+    {
+      "flow": "material",
+      "is_return": true,
+      "conveyor": null,
+      "id": "r10",
+      "from": "empaque",
+      "to": "nuclL",
+      "frac": 0.5
+    },
+    {
+      "id": "rmvr0rwabc",
+      "from": "emb1",
+      "to": "smvr0ovf46",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0s193d",
+      "from": "smvr0ovf46",
+      "to": "arm1",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0sczre",
+      "from": "emb2",
+      "to": "smvr0ovf46",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0sov4f",
+      "from": "arm1",
+      "to": "smvr0bclx2",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0sswah",
+      "from": "smvr0ndbh5",
+      "to": "tester1",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0stubi",
+      "from": "tester1",
+      "to": "smvr0ndbh5",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0suuvj",
+      "from": "smvr0ndbh5",
+      "to": "smvr083wr1",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0sz8xk",
+      "from": "smvr083wr1",
+      "to": "impregnado",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0t25fl",
+      "from": "impregnado",
+      "to": "stock",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0t33wm",
+      "from": "stock",
+      "to": "horno",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0u5b9n",
+      "from": "smvr0bclx2",
+      "to": "sol1",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0u958o",
+      "from": "sol1",
+      "to": "smvr0bclx2",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0uenlp",
+      "from": "smvr0bclx2",
+      "to": "sol2",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0ufmgq",
+      "from": "sol2",
+      "to": "smvr0bclx2",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0vrpxv",
+      "from": "emb7",
+      "to": "smvr0vdx0r",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0vunuw",
+      "from": "smvr0vdx0r",
+      "to": "arm4",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0vwjwx",
+      "from": "arm4",
+      "to": "smvr0mogh4",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0vy2ty",
+      "from": "smvr0mogh4",
+      "to": "smvr0gd313",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0w00qz",
+      "from": "smvr0gd313",
+      "to": "smvr0bclx2",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0w6ue10",
+      "from": "emb8",
+      "to": "smvr0vdx0r",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0wcvg11",
+      "from": "emb9",
+      "to": "smvr0vdx0s",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0wg6y12",
+      "from": "smvr0vdx0s",
+      "to": "arm5",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0wpd313",
+      "from": "emb10",
+      "to": "smvr0vdx0t",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0wqpn14",
+      "from": "smvr0vdx0t",
+      "to": "arm5",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0wt6t15",
+      "from": "arm5",
+      "to": "smvr0mogh4",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0wyvo16",
+      "from": "emb11",
+      "to": "smvr0vdx0u",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0wznz17",
+      "from": "smvr0vdx0u",
+      "to": "arm6",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0x2q418",
+      "from": "arm6",
+      "to": "smvr0mogh4",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0x7gx19",
+      "from": "emb12",
+      "to": "smvr0vdx0u",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0xe0y1a",
+      "from": "smvr0mogh4",
+      "to": "solR3",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0xfja1b",
+      "from": "solR3",
+      "to": "smvr0mogh4",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0xgii1c",
+      "from": "smvr0mogh4",
+      "to": "solR4",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0xhd01d",
+      "from": "solR4",
+      "to": "smvr0mogh4",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0z9a11g",
+      "from": "smvr083wr1",
+      "to": "horno",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zan01h",
+      "from": "horno",
+      "to": "smvr083wr1",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zbgk1i",
+      "from": "smvr083wr1",
+      "to": "stock",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zch91j",
+      "from": "stock",
+      "to": "smvr083wr1",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zddn1k",
+      "from": "smvr083wr1",
+      "to": "smvr0xxin1e",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zg5w1l",
+      "from": "smvr0xxin1e",
+      "to": "gab1",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zikh1m",
+      "from": "gab1",
+      "to": "smvr0xxin1e",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zjcz1n",
+      "from": "smvr0xxin1e",
+      "to": "gab2",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zkjj1o",
+      "from": "gab2",
+      "to": "smvr0xxin1e",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zldo1p",
+      "from": "smvr0xxin1e",
+      "to": "gab3",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zmfd1q",
+      "from": "gab3",
+      "to": "smvr0y7xl1f",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zn6r1r",
+      "from": "smvr0y7xl1f",
+      "to": "gab4",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zoc11s",
+      "from": "gab4",
+      "to": "smvr0y7xl1f",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zp0y1t",
+      "from": "smvr0y7xl1f",
+      "to": "gab5",
+      "frac": 1
+    },
+    {
+      "id": "rmvr0zptg1u",
+      "from": "gab5",
+      "to": "smvr0y7xl1f",
+      "frac": 1
+    },
+    {
+      "id": "rmvr11cig1y",
+      "from": "gab5",
+      "to": "smvr10wn81x",
+      "frac": 1
+    },
+    {
+      "id": "rmvr11dn41z",
+      "from": "smvr10wn81x",
+      "to": "tester2",
+      "frac": 1
+    },
+    {
+      "id": "rmvr11fp820",
+      "from": "tester2",
+      "to": "smvr10wn81x",
+      "frac": 1
+    },
+    {
+      "id": "rmvr12u7m22",
+      "from": "smvr10wn81x",
+      "to": "smvr12cvr21",
+      "frac": 1
+    },
+    {
+      "id": "rmvr12v4f23",
+      "from": "smvr12cvr21",
+      "to": "empaque",
+      "frac": 1
+    }
+  ],
+  "size": {
+    "w": 34,
+    "d": 18
+  },
+  "stations": [
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "torno",
+      "t": 0,
+      "ops": 1,
+      "id": "emb1",
+      "name": "Emb 1",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "embobinadora",
+      "t": 0,
+      "ops": 1,
+      "id": "emb2",
+      "name": "Emb 2",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "embobinadora",
+      "t": 0,
+      "ops": 1,
+      "id": "emb3",
+      "name": "Emb 3",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "embobinadora",
+      "t": 0,
+      "ops": 1,
+      "id": "emb4",
+      "name": "Emb 4",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "embobinadora",
+      "t": 0,
+      "ops": 1,
+      "id": "emb5",
+      "name": "Emb 5",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "embobinadora",
+      "t": 0,
+      "ops": 1,
+      "id": "emb6",
+      "name": "Emb 6",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "embobinadora",
+      "t": 0,
+      "ops": 1,
+      "id": "emb7",
+      "name": "Emb 7",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "embobinadora",
+      "t": 0,
+      "ops": 1,
+      "id": "emb8",
+      "name": "Emb 8",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "embobinadora",
+      "t": 0,
+      "ops": 1,
+      "id": "emb9",
+      "name": "Emb 9",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "embobinadora",
+      "t": 0,
+      "ops": 1,
+      "id": "emb10",
+      "name": "Emb 10",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "embobinadora",
+      "t": 0,
+      "ops": 1,
+      "id": "emb11",
+      "name": "Emb 11",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2.5,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "embobinadora",
+      "t": 0,
+      "ops": 1,
+      "id": "emb12",
+      "name": "Emb 12",
+      "w": 2.5,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 3,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "nucleo",
+      "t": 0,
+      "ops": 1,
+      "id": "nuclL",
+      "name": "Nucl L",
+      "w": 3,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 3,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "nucleo",
+      "t": 0,
+      "ops": 1,
+      "id": "nuclR",
+      "name": "Nucl R",
+      "w": 3,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "armado",
+      "t": 0,
+      "ops": 1,
+      "id": "arm1",
+      "name": "Armado A1",
+      "w": 2,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "armado",
+      "t": 0,
+      "ops": 1,
+      "id": "arm2",
+      "name": "Armado A2",
+      "w": 2,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "armado",
+      "t": 0,
+      "ops": 1,
+      "id": "arm3",
+      "name": "Armado A3",
+      "w": 2,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "armado",
+      "t": 0,
+      "ops": 1,
+      "id": "arm4",
+      "name": "Armado A4",
+      "w": 2,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "armado",
+      "t": 0,
+      "ops": 1,
+      "id": "arm5",
+      "name": "Armado A5",
+      "w": 2,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "armado",
+      "t": 0,
+      "ops": 1,
+      "id": "arm6",
+      "name": "Armado A6",
+      "w": 2,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 4,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "almacen",
+      "t": 0,
+      "ops": 1,
+      "id": "almacen",
+      "name": "Almacén Componentes",
+      "w": 2,
+      "d": 4
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "soldadura",
+      "t": 0,
+      "ops": 1,
+      "id": "sol1",
+      "name": "Soldadura S1",
+      "w": 2,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "soldadura",
+      "t": 0,
+      "ops": 1,
+      "id": "sol2",
+      "name": "Soldadura S2",
+      "w": 2,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "soldadura",
+      "t": 0,
+      "ops": 1,
+      "id": "solR3",
+      "name": "Soldadura Sol3",
+      "w": 2,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "soldadura",
+      "t": 0,
+      "ops": 1,
+      "id": "solR4",
+      "name": "Soldadura Sol4",
+      "w": 2,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "gabinete",
+      "t": 0,
+      "ops": 1,
+      "id": "gab1",
+      "name": "Ensamble Gab 1",
+      "w": 2,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "gabinete",
+      "t": 0,
+      "ops": 1,
+      "id": "gab2",
+      "name": "Ensamble Gab 2",
+      "w": 2,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "gabinete",
+      "t": 0,
+      "ops": 1,
+      "id": "gab3",
+      "name": "Ensamble Gab 3",
+      "w": 2,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "gabinete",
+      "t": 0,
+      "ops": 1,
+      "id": "gab4",
+      "name": "Ensamble Gab 4",
+      "w": 2,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 1.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "gabinete",
+      "t": 0,
+      "ops": 1,
+      "id": "gab5",
+      "name": "Ensamble Gab 5",
+      "w": 2,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 4,
+      "unit_d": 2.5,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "almacen",
+      "t": 0,
+      "ops": 1,
+      "id": "stock",
+      "name": "Stock y Secado",
+      "w": 4,
+      "d": 2.5
+    },
+    {
+      "count": 1,
+      "unit_w": 4,
+      "unit_d": 4,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "kind": "horno",
+      "t": 0,
+      "ops": 1,
+      "id": "horno",
+      "name": "Horno de Bache",
+      "w": 5,
+      "d": 3
+    },
+    {
+      "count": 1,
+      "unit_w": 3,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "impregnado",
+      "t": 0,
+      "ops": 1,
+      "id": "impregnado",
+      "name": "Tanque Impregnado",
+      "w": 3,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "tester",
+      "t": 0,
+      "ops": 1,
+      "id": "tester1",
+      "name": "Tester 1 (Intermedio)",
+      "w": 2,
+      "d": 1.5
+    },
+    {
+      "count": 1,
+      "unit_w": 2,
+      "unit_d": 2,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "tester",
+      "t": 0,
+      "ops": 1,
+      "id": "tester2",
+      "name": "Tester 2 (Final)",
+      "w": 2,
+      "d": 2
+    },
+    {
+      "count": 1,
+      "unit_w": 3,
+      "unit_d": 3,
+      "arrangement": "fila",
+      "t_source": "supuesto",
+      "locked": false,
+      "lock_reason": "",
+      "kind": "empaque",
+      "t": 0,
+      "ops": 2,
+      "id": "empaque",
+      "name": "Empaque y Salida",
+      "w": 3,
+      "d": 3
+    },
+    {
+      "id": "smvr083wr1",
+      "name": "Grua",
+      "kind": "grua",
+      "w": 1,
+      "d": 1,
+      "t": 3,
+      "ops": 1
+    },
+    {
+      "id": "smvr0bclx2",
+      "name": "Conveyor",
+      "kind": "banda",
+      "w": 0.5,
+      "d": 14,
+      "t": 3,
+      "ops": 1
+    },
+    {
+      "id": "smvr0gd313",
+      "name": "Conveyor 2",
+      "kind": "banda",
+      "w": 17,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr0mogh4",
+      "name": "Conveyor 3",
+      "kind": "banda",
+      "w": 0.5,
+      "d": 14,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr0ndbh5",
+      "name": "Conveyor 2 (copia)",
+      "kind": "banda",
+      "w": 5,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr0ovf46",
+      "name": "Rack de bobinas",
+      "kind": "otro",
+      "w": 0.5,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1
+    },
+    {
+      "id": "smvr0pz9a9",
+      "name": "Rack de bobinas 2",
+      "kind": "otro",
+      "w": 0.5,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr0q33ia",
+      "name": "Rack de bobinas 3",
+      "kind": "otro",
+      "w": 0.5,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr0q7srb",
+      "name": "Rack de bobinas 4",
+      "kind": "otro",
+      "w": 0.5,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr0vdx0r",
+      "name": "Rack de bobinas (copia)",
+      "kind": "otro",
+      "w": 0.5,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr0vdx0s",
+      "name": "Rack de bobinas 2 (copia)",
+      "kind": "otro",
+      "w": 0.5,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr0vdx0t",
+      "name": "Rack de bobinas 3 (copia)",
+      "kind": "otro",
+      "w": 0.5,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr0vdx0u",
+      "name": "Rack de bobinas 4 (copia)",
+      "kind": "otro",
+      "w": 0.5,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr0xxin1e",
+      "name": "Conveyor 4",
+      "kind": "otro",
+      "w": 0.5,
+      "d": 4,
+      "t": 3,
+      "ops": 1
+    },
+    {
+      "id": "smvr0y7xl1f",
+      "name": "Conveyor 5",
+      "kind": "otro",
+      "w": 6,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr10wn81x",
+      "name": "Conveyor 6",
+      "kind": "otro",
+      "w": 0.5,
+      "d": 4,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    },
+    {
+      "id": "smvr12cvr21",
+      "name": "Conveyor 7",
+      "kind": "banda",
+      "w": 5,
+      "d": 0.5,
+      "t": 3,
+      "ops": 1,
+      "locked": false,
+      "lock_reason": ""
+    }
+  ],
+  "zones": [
+    {
+      "locked": false,
+      "lock_reason": "",
+      "kind": "produccion",
+      "id": "z1",
+      "name": "Pasillos Principales",
+      "x": 24.75,
+      "z": 5.25,
+      "w": 1,
+      "d": 5.5
+    }
+  ],
+  "schema_version": 3,
+  "receive_gate": "A",
+  "dispatch_gate": "C",
+  "parts": [
+    {
+      "id": "base",
+      "kind": "rect",
+      "x": 17,
+      "z": 9,
+      "w": 34,
+      "d": 18,
+      "rot": 0,
+      "hole": false
+    }
+  ],
+  "layout": {
+    "emb1": [
+      2.25,
+      3.5,
+      0
+    ],
+    "emb2": [
+      2.25,
+      5.5,
+      0
+    ],
+    "emb3": [
+      2.25,
+      7.5,
+      0
+    ],
+    "emb4": [
+      2.25,
+      9.5,
+      0
+    ],
+    "emb5": [
+      2.25,
+      11.5,
+      0
+    ],
+    "emb6": [
+      2.25,
+      13.5,
+      0
+    ],
+    "emb7": [
+      32,
+      3.5,
+      0
+    ],
+    "emb8": [
+      32,
+      5.5,
+      0
+    ],
+    "emb9": [
+      32,
+      7.5,
+      0
+    ],
+    "emb10": [
+      32,
+      9.5,
+      0
+    ],
+    "emb11": [
+      32,
+      11.5,
+      0
+    ],
+    "emb12": [
+      32,
+      13.5,
+      0
+    ],
+    "nuclL": [
+      8.5,
+      1.5,
+      0
+    ],
+    "nuclR": [
+      27.5,
+      1.5,
+      0
+    ],
+    "arm1": [
+      7,
+      4.5,
+      0
+    ],
+    "arm2": [
+      7,
+      6.5,
+      0
+    ],
+    "arm3": [
+      7,
+      8.5,
+      0
+    ],
+    "arm4": [
+      27.5,
+      4.5,
+      0
+    ],
+    "arm5": [
+      27.5,
+      6.5,
+      0
+    ],
+    "arm6": [
+      27.5,
+      8.5,
+      0
+    ],
+    "almacen": [
+      10,
+      5.5,
+      0
+    ],
+    "sol1": [
+      10.5,
+      10.5,
+      0
+    ],
+    "sol2": [
+      10.5,
+      12.5,
+      0
+    ],
+    "solR3": [
+      27.5,
+      11.5,
+      0
+    ],
+    "solR4": [
+      27.5,
+      13.5,
+      0
+    ],
+    "gab1": [
+      13.5,
+      9.5,
+      0
+    ],
+    "gab2": [
+      13.5,
+      7.5,
+      0
+    ],
+    "gab3": [
+      15,
+      5.5,
+      0
+    ],
+    "gab4": [
+      17.25,
+      5.5,
+      0
+    ],
+    "gab5": [
+      19.75,
+      5.5,
+      0
+    ],
+    "stock": [
+      20,
+      9,
+      0
+    ],
+    "horno": [
+      19.5,
+      13,
+      0
+    ],
+    "impregnado": [
+      18.5,
+      15.5,
+      0
+    ],
+    "tester1": [
+      11.75,
+      16,
+      0
+    ],
+    "tester2": [
+      22.75,
+      3.75,
+      0
+    ],
+    "empaque": [
+      17,
+      2,
+      0
+    ],
+    "smvr083wr1": [
+      14.5,
+      13,
+      0
+    ],
+    "smvr0bclx2": [
+      8.5,
+      10.5,
+      0
+    ],
+    "smvr0gd313": [
+      17.25,
+      17.25,
+      0
+    ],
+    "smvr0mogh4": [
+      26,
+      10.5,
+      0
+    ],
+    "smvr0ndbh5": [
+      11.25,
+      14.25,
+      0
+    ],
+    "smvr0ovf46": [
+      4.75,
+      4.75,
+      0
+    ],
+    "smvr0pz9a9": [
+      4.75,
+      6.75,
+      0
+    ],
+    "smvr0q33ia": [
+      4.75,
+      8.75,
+      0
+    ],
+    "smvr0q7srb": [
+      4.75,
+      10.75,
+      0
+    ],
+    "smvr0vdx0r": [
+      29.5,
+      4.5,
+      0
+    ],
+    "smvr0vdx0s": [
+      29.5,
+      6.5,
+      0
+    ],
+    "smvr0vdx0t": [
+      29.5,
+      8.5,
+      0
+    ],
+    "smvr0vdx0u": [
+      29.5,
+      10.5,
+      0
+    ],
+    "smvr0xxin1e": [
+      15.25,
+      8.75,
+      0
+    ],
+    "smvr0y7xl1f": [
+      18,
+      6.75,
+      0
+    ],
+    "smvr10wn81x": [
+      21.25,
+      4.75,
+      0
+    ],
+    "smvr12cvr21": [
+      18.5,
+      4,
+      0
+    ]
+  }
+}
