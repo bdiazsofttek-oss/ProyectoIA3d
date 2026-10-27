@@ -6,6 +6,7 @@ import PlanEditor from '../editor/PlanEditor'
 import Btn from '../fx/Btn'
 import { Appear, RevealTitle } from '../fx/Reveal'
 import { ask } from '../components/Dialog'
+import PlanJsonTools from '../components/PlanJsonTools'
 
 /* Nombre editable en el mismo chip: clic para escribir, Enter o salir para guardar. */
 function ChipName({ value, onCommit }) {
@@ -153,10 +154,11 @@ function SpatialNote({ spatial }) {
     )
 }
 
-export default function Story({ saveError, onReadContext, onVerify, constructionProgress, text, setText, info, draft, setDraft, catalog, reading, error, onRead, onBlank, onSave, saving, onOpenContext, context2, pending = 0 }) {
+export default function Story({ saveError, onReadContext, onVerify, constructionProgress, text, setText, info, draft, setDraft, catalog, reading, error, onRead, onBlank, onImportPlan, onSave, saving, onOpenContext, context2, pending = 0 }) {
     const empty = !text.trim()
     const [metrics, setMetrics] = useState(null)
     const editorRef = useRef(null)
+    const [editorVersion, setEditorVersion] = useState(0)
 
     const scrollToEditor = () => setTimeout(() => editorRef.current?.scrollIntoView({ behavior: 'smooth', block: 'start' }), 120)
 
@@ -175,6 +177,13 @@ export default function Story({ saveError, onReadContext, onVerify, construction
                 <RevealTitle text="Describe cómo es tu planta." />
                 <p className="lede">Escribe tu planta y tu proceso con tus palabras: la IA arma un primer plano y luego lo corriges tú. Si además tienes documentos, estudios o datos por tema, inicia un proyecto avanzado.</p>
             </header>
+
+            <PlanJsonTools draft={draft} disabled={reading} onImport={(plant, filename) => {
+                onImportPlan(plant, filename)
+                setMetrics(null)
+                setEditorVersion((version) => version + 1)
+                scrollToEditor()
+            }} />
 
             <div className="split">
                 <Appear className="stack">
@@ -247,7 +256,7 @@ export default function Story({ saveError, onReadContext, onVerify, construction
                         <Appear className="block">
                             <div className="chart-head" style={{ marginBottom: 12 }}>
                                 <h3>Tu proceso</h3>
-                                <span className="small">Resultado del análisis</span>
+                                <span className="small">{info.source === 'JSON' ? 'Plano importado' : 'Resultado del análisis'}</span>
                             </div>
 
                             {draft && <ProcessSummary draft={draft} setDraft={setDraft} />}
@@ -277,6 +286,7 @@ export default function Story({ saveError, onReadContext, onVerify, construction
                     </div>
 
                     <PlanEditor
+                        key={editorVersion}
                         plant={draft}
                         positions={draft.layout}
                         onChange={(p, pos) => setDraft({ ...p, layout: pos })}

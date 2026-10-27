@@ -281,6 +281,16 @@ export default function App() {
             info={info}
             draft={draft}
             setDraft={(d) => update((p) => ({ draft: d, draftRev: (p.draftRev || 0) + 1 }))}
+            onImportPlan={(plant, filename) => {
+                setError(null)
+                setSaveError(null)
+                setConstructionProgress(null)
+                update((p) => ({ draft: plant, draftRev: (p.draftRev || 0) + 1,
+                    info: { source: 'JSON', notes: [`Plano importado de ${filename}. Sus posiciones vienen del archivo; no se generaron con IA.`] },
+                    plant: null, analysis: null, redesign: { choice: null, custom: null, metrics: null },
+                    constructionJob: null, context2Ok: null, analysisInputSignature: null, printed: false, maxStep: 0,
+                }))
+            }}
             catalog={catalog}
             reading={reading}
             error={error}
